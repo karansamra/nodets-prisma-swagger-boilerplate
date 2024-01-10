@@ -6,7 +6,7 @@ import cors from 'cors';
 import swaggerJsDoc from 'swagger-jsdoc';
 import swaggerUi from 'swagger-ui-express';
 import swaggerDefinition from '../swagger/swaggerDefinition';
-import { default as routesV1 } from './routesV1';
+import { default as routesV1 } from './routesV1.0.0';
 
 const routes = Router();
 dotenv.config();
@@ -20,7 +20,7 @@ const port = 3001;
 // Extended: https://swagger.io/specification/#infoObject
 let swaggerOptions = {
   swaggerDefinition,
-  apis: ['routesV1.js'],
+  apis: ['routesV1.0.0.js'],
 };
 
 app.use('/api', routesV1); // Assigning Defined Routes

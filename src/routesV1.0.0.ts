@@ -17,6 +17,6 @@ routes.get('/', (req, res) => {
 });
 
 // Authentication
-routes.get('/v1/users', SquareController.get);
+routes.get('/v1.0.0/users', SquareController.get);
 
 export default routes;
