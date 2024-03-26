@@ -10,6 +10,8 @@
     "strict": true,
     "baseUrl": "./src",
     "resolveJsonModule": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
     "paths": {
       "/*": ["."]
     },

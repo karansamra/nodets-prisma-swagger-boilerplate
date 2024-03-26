@@ -1,4 +1,19 @@
-const response = {
+export const responseStatusCodes = {
+  ok: 200,
+  created: 201,
+  accepted: 202,
+  noContent: 204,
+  badRequest: 400,
+  unauthorized: 401,
+  paymentRequired: 402,
+  forbidden: 403,
+  notFound: 404,
+  methodNotAllowed: 405,
+  validationError: 422,
+  internalServerError: 500,
+};
+
+export const response = {
   statuses: {
     success: 'success',
     error: 'error',
@@ -8,15 +23,12 @@ const response = {
     status: string,
     data: any,
     message: string = '',
-    code: number = null,
+    code: number = responseStatusCodes.ok,
     technicalDetails: any = {}
   ) {
-    const response = res.json({ status, data, message, technicalDetails });
     if (code) {
-      response.status(code);
+      res.status(code);
     }
-    return response;
+    return res.json({ status, data, message, technicalDetails });
   },
 };
-
-export { response };

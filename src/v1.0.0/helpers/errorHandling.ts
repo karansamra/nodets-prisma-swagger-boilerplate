@@ -1,9 +1,3 @@
-// interface HandleError {
-//   code: number;
-//   message: string;
-//   errorData: any;
-// }
-
 const handleError = function handleError1(
   this: any,
   message: string,
