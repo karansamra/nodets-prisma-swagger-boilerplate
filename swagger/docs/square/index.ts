@@ -6,7 +6,7 @@ const {
   },
 } = squareReqAndRes;
 const squarePaths: any = {
-  '/api/v1/users': {
+  '/users': {
     get: {
       tags: ['flash-cards'],
       summary: 'Get Users',

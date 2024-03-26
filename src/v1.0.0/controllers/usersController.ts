@@ -1,13 +1,11 @@
-import { translate } from '../../v1/helpers/multilingual';
-import { handleError } from '../../v1/helpers/errorHandling';
-import { addDetails } from '../../v1/services/usersService';
+import { translate } from '../helpers/multilingual';
+import { addDetails } from '../services/usersService';
 const {
   response: {
     statuses: { success: successStatus, error: errorStatus },
     create: createResponse,
   },
-} = require('../../v1/helpers/common');
-const { validate } = require('../../v1/helpers/validator');
+} = require('../helpers/common');
 
 const UsersController = {
   get: async (req: any, res: any) => {
@@ -17,18 +15,6 @@ const UsersController = {
       };
       // Call Translate
       const translateObj = translate(req.headers.lang);
-      const { data: validationData, status: validationStatus } = await validate(
-        req.headers,
-        validations
-      );
-      if (!validationStatus) {
-        throw new (handleError as any)(
-          translateObj.__('HEADERS_MISSING'),
-          400,
-          validationData
-        );
-      }
-
       const users = [
         {
           id: 1,

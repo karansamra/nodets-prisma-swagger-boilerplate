@@ -1,14 +1,14 @@
 import { Router } from 'express';
 import moment from 'moment';
 const routes = Router();
-import SquareController from './v1/controllers/usersController';
+import UsersController from '../v1.0.0/controllers/usersController';
 
 // let squareControllerV1 = require("./controllers/v1/squareController");
 /*---------------------------------------------------------------------------------
  Define All the Routes Below. The routes will follow REST API standards strictly.
  ---------------------------------------------------------------------------------*/
 routes.get('/', (req, res) => {
-  const port = process.env.PORT || 3001;
+  const port = process.env.PORT ?? 3001;
   res.send(
     `The Express Application is running on this Server. Server DateTime: ${moment().format(
       'MMMM Do YYYY, h:mm:ss a z'
@@ -17,6 +17,6 @@ routes.get('/', (req, res) => {
 });
 
 // Authentication
-routes.get('/v1.0.0/users', SquareController.get);
+routes.get('/v1.0.0/users', UsersController.get);
 
 export default routes;
