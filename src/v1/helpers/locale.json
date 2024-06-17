@@ -105,6 +105,33 @@
     "en": "Data has been fetched."
   },
   "HEADERS_MISSING": {
-    "en": "Required headers are missing!"
+    "en": "Required fields are missing!"
+  },
+  "FIRST_NAME_REQUIRED": {
+    "en": "First name is required!"
+  },
+  "FIRST_NAME_LENGTH": {
+    "en": "First name can't be less than three words!"
+  },
+  "LAST_NAME_REQUIRED": {
+    "en": "Last name is required!"
+  },
+  "LAST_NAME_LENGTH": {
+    "en": "Last name can't be less than three words!"
+  },
+  "MUST_STRING": {
+    "en": "String type expected!"
+  },
+  "EMAIL_REQUIRED": {
+    "en": "Email is required!"
+  },
+  "VALID_EMAIL": {
+    "en": "Please enter valid email!"
+  },
+  "PASSWORD_REQUIRED": {
+    "en": "Password is required!"
+  },
+  "PASSWORD_LENGTH": {
+    "en": "Password must be at least eight characters long!"
   }
 }

@@ -3,7 +3,11 @@
   "scripts": {
     "build": "tsc",
     "start": "tsc & node .",
-    "dev": "ts-node-dev --respawn --transpile-only ./src/index.ts",
+    "local": "ts-node-dev --respawn --transpile-only ./src/index.ts",
+    "dev": "rm -f .env && cp .env.development .env && ts-node-dev --respawn --transpile-only ./src/index.ts",
+    "qa": "rm -f .env && cp .env.qa .env && ts-node-dev --respawn --transpile-only ./src/index.ts",
+    "uat": "rm -f .env && cp .env.uat .env && ts-node-dev --respawn --transpile-only ./src/index.ts",
+    "prod": "rm -f .env && cp .env.production .env && ts-node-dev --respawn --transpile-only ./src/index.ts",
     "tslint": "tslint --project tsconfig.json"
   },
   "devDependencies": {
@@ -32,10 +36,10 @@
     "cors": "^2.8.5",
     "dotenv-flow": "^3.2.0",
     "express": "^4.18.2",
+    "express-validator": "^7.1.0",
     "i18n-nodejs": "^3.0.0",
     "moment": "^2.29.4",
     "morgan": "^1.10.0",
-    "node-input-validator": "^4.5.0",
     "reflect-metadata": "^0.2.1",
     "swagger-jsdoc": "^6.1.0",
     "swagger-ui-express": "^4.2.0"
