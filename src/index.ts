@@ -3,6 +3,7 @@ import * as dotenv from 'dotenv';
 import express from 'express';
 import morgan from 'morgan';
 import * as path from 'path';
+import 'reflect-metadata';
 import swaggerJsDoc from 'swagger-jsdoc';
 import swaggerUi from 'swagger-ui-express';
 import swaggerDefinition from '../swagger/swaggerDefinition';
