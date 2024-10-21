@@ -1,6 +1,11 @@
 // validateResource.ts
 import { Request, Response, NextFunction } from 'express';
 import { z, AnyZodObject } from 'zod';
+import { responseStatusCodes } from '../../helpers/common';
+import {
+  VALIDATION_ERROR,
+  INTERNAL_SERVER_ERROR,
+} from '../../helpers/locale.json';
 
 const validateResource =
   (schema: AnyZodObject) =>
@@ -15,12 +20,14 @@ const validateResource =
       next();
     } catch (error: unknown) {
       if (error instanceof z.ZodError) {
-        return res.status(422).json({
-          message: 'Validation failed',
+        return res.status(responseStatusCodes.validationError).json({
+          message: VALIDATION_ERROR.en,
           errors: error.errors,
         });
       }
-      return res.status(500).json({ message: 'Internal server error' });
+      return res
+        .status(responseStatusCodes.internalServerError)
+        .json({ message: INTERNAL_SERVER_ERROR.en });
     }
   };
 
