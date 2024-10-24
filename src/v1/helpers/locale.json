@@ -133,5 +133,41 @@
   },
   "PASSWORD_LENGTH": {
     "en": "Password must be at least eight characters long!"
+  },
+  "USERNAME_REQUIRED": {
+    "en": "Username is required!"
+  },
+  "USERNAME_MIN_LENGTH": {
+    "en": "Username must be at least 3 characters long!"
+  },
+  "USERNAME_MAX_LENGTH": {
+    "en": "Username must not exceed 50 characters!"
+  },
+  "EMAIL_MIN_LENGTH": {
+    "en": "Email must be at least 3 characters long!"
+  },
+  "EMAIL_MAX_LENGTH": {
+    "en": "Email must not exceed 255 characters!"
+  },
+  "PASSWORD_MIN_LENGTH": {
+    "en": "Password must be at least 5 characters!"
+  },
+  "PASSWORD_MAX_LENGTH": {
+    "en": "Password can't exceed 25 characters!"
+  },
+  "UUID_REQUIRED": {
+    "en": "UUID is Required"
+  },
+  "INVALID_UUID_FORMAT": {
+    "en": "Invalid UUID Format"
+  },
+  "INVALID_PAGE_NUMBER": {
+    "en": "Page must be a positive number"
+  },
+  "INVALID_PAGE_LIMIT": {
+    "en": "Limit must be a positive number"
+  },
+  "INTERNAL_SERVER_ERROR": {
+    "en": "Internal Server Error"
   }
 }

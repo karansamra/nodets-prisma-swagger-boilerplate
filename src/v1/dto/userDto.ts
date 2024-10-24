@@ -20,6 +20,9 @@ export class UserDTO extends CommonDTO {
   @Expose()
   verified!: boolean;
 
-  @Exclude()
+  @Expose()
   password!: string;
+
+  @Exclude()
+  confirmPassword!: string;
 }
