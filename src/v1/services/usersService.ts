@@ -75,7 +75,6 @@ export const listUsers = async (
 ): Promise<IReturnType> => {
   try {
     const userData = await userModel.getAllUsers(page, limit, search);
-    console.log('userData: ', userData);
 
     if (!userData.success) {
       return {

@@ -1,12 +1,23 @@
-export const userNameMinLength = 3;
-export const userNameMaxLength = 50;
+export const UserConstraints = {
+  userName: {
+    minLength: 3,
+    maxLength: 50,
+  },
+  email: {
+    minLength: 3,
+    maxLength: 255,
+  },
+  password: {
+    minLength: 5,
+    maxLength: 25,
+  },
+};
 
-export const emailMinLength = 3;
-export const emailMaxLength = 255;
+export const PaginationDefaults = {
+  startingPage: 1,
+  recordsPerPageLimit: 10,
+};
 
-export const passwordMinLength = 5;
-export const passwordMaxLength = 25;
-
-export const defaultStartingPage = 1;
-export const defaultRecordsPerPageLimit = 10;
-export const defaultZeroValue = 0;
+export const DefaultValues = {
+  zero: 0,
+};
