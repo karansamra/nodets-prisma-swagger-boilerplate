@@ -3,9 +3,9 @@ import { UserDTO } from '../dto/userDto';
 import * as commonMethod from '../helpers/common';
 import { translate } from '../helpers/multilingual';
 import {
-  getUser,
-  listUsers,
-  registerUser,
+  getUserById,
+  getUsers,
+  createUser,
   RegisterUserReturnValues,
 } from '../services/usersService';
 import { Request, Response } from 'express';
@@ -18,45 +18,7 @@ const {
 } = commonMethod;
 
 const UsersController = {
-  get: async (req: any, res: any) => {
-    try {
-      const translateObj = translate(req.headers.lang);
-      const userData = plainToClass(UserDTO, req.body, {
-        excludeExtraneousValues: true,
-        enableImplicitConversion: true,
-      });
-      const userDetails = await registerUser(userData);
-
-      if (userDetails.success) {
-        return createResponse(
-          res,
-          successStatus,
-          userDetails.data.resData,
-          translateObj.__('DATA_FETCHED')
-        );
-      } else {
-        let message = translateObj.__('DATA_NOT_FOUND'); // define messages according to service response
-        if (
-          userDetails.data.resType === RegisterUserReturnValues.UserNotCreated
-        ) {
-          message = translateObj.__('DATA_NOT_FOUND');
-        }
-        return createResponse(res, errorStatus, {}, message);
-      }
-    } catch (e: any) {
-      console.error(e);
-      return createResponse(
-        res,
-        errorStatus,
-        {},
-        e.message,
-        e.code,
-        e.errorData
-      );
-    }
-  },
-
-  addUser: async (req: Request, res: Response) => {
+  registerUser: async (req: Request, res: Response) => {
     try {
       const translateObj = translate(req.headers.lang);
 
@@ -65,7 +27,7 @@ const UsersController = {
         enableImplicitConversion: true,
       });
 
-      const userDetails = await registerUser(userData);
+      const userDetails = await createUser(userData);
 
       if (
         userDetails.success &&
@@ -102,13 +64,13 @@ const UsersController = {
     }
   },
 
-  getOne: async (req: Request, res: Response) => {
+  getUser: async (req: Request, res: Response) => {
     try {
       const translateObj = translate(req.headers.lang);
 
       const { userId } = req.params;
 
-      const { success, data } = await getUser(userId);
+      const { success, data } = await getUserById(userId);
 
       let responseMessage = success
         ? translateObj.__('USER_FETCHED')
@@ -140,7 +102,7 @@ const UsersController = {
       const { page, limit, search } = req.query;
       console.log('req.query: ', req.query);
 
-      const { success, data } = await listUsers(
+      const { success, data } = await getUsers(
         Number(page),
         Number(limit),
         search as string
@@ -168,11 +130,6 @@ const UsersController = {
       );
     }
   },
-
-  add: async (req: any, res: any) => {},
-  update: async (req: any, res: any) => {},
-  delete: async (req: any, res: any) => {},
-  patch: async (req: any, res: any) => {},
 };
 
 export default UsersController;

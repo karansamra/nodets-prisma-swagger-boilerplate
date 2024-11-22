@@ -2,7 +2,7 @@ import { Prisma, PrismaClient } from '@prisma/client';
 import { IReturnType } from 'v1/types/common';
 const prisma = new PrismaClient();
 
-export const create = async (
+export const createUser = async (
   createInput: Prisma.UserCreateInput
 ): Promise<IReturnType> => {
   try {
@@ -34,7 +34,7 @@ export const findUserById = async (userId: string): Promise<IReturnType> => {
   }
 };
 
-export const getAllUsers = async (
+export const getUsers = async (
   page: number,
   limit: number,
   search?: string

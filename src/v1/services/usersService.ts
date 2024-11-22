@@ -1,5 +1,5 @@
 import { IReturnType } from 'v1/types/common';
-import * as userModel from '../repository/usersRepository';
+import * as userRepository from '../repository/usersRepository';
 import { IUser } from 'v1/types/users';
 
 export const enum RegisterUserReturnValues {
@@ -14,11 +14,11 @@ export const enum GetUserReturnValues {
   UserFound = 3,
 }
 
-export const registerUser = async (
+export const createUser = async (
   createUserData: IUser
 ): Promise<IReturnType> => {
   try {
-    const usersDetails = await userModel.create(createUserData);
+    const usersDetails = await userRepository.createUser(createUserData);
     if (usersDetails.success) {
       return {
         success: true,
@@ -41,9 +41,9 @@ export const registerUser = async (
   }
 };
 
-export const getUser = async (userId: string): Promise<IReturnType> => {
+export const getUserById = async (userId: string): Promise<IReturnType> => {
   try {
-    const userData = await userModel.findUserById(userId);
+    const userData = await userRepository.findUserById(userId);
 
     if (!userData.success) {
       return {
@@ -68,13 +68,13 @@ export const getUser = async (userId: string): Promise<IReturnType> => {
   }
 };
 
-export const listUsers = async (
+export const getUsers = async (
   page: number,
   limit: number,
   search?: string
 ): Promise<IReturnType> => {
   try {
-    const userData = await userModel.getAllUsers(page, limit, search);
+    const userData = await userRepository.getUsers(page, limit, search);
 
     if (!userData.success) {
       return {
