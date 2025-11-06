@@ -1,7 +1,7 @@
 import { Router } from 'express';
 import moment from 'moment';
 const routes = Router();
-import UsersController from './controllers/usersController';
+import UsersController from '@src/v1/controllers/usersController';
 
 /*---------------------------------------------------------------------------------
  Define All the Routes Below. The routes will follow REST API standards strictly.

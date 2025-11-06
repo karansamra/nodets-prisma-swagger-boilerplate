@@ -1,11 +1,11 @@
 import { plainToClass } from 'class-transformer';
-import { UserDTO } from '../dto/userDto';
-import * as commonMethod from '../helpers/common';
-import { translate } from '../helpers/multilingual';
+import { UserDTO } from '@src/v1/dto/userDto';
+import * as commonMethod from '@src/v1/helpers/common';
+import { translate } from '@src/v1/helpers/multilingual';
 import {
   registerUser,
   RegisterUserReturnValues,
-} from '../services/usersService';
+} from '@src/v1/services/usersService';
 const {
   response: {
     statuses: { success: successStatus, error: errorStatus },

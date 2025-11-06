@@ -1,4 +1,4 @@
-import { ICommonResourceProperties } from './common';
+import { ICommonResourceProperties } from '@src/v1/types/common';
 
 export interface IUser extends ICommonResourceProperties {
   username: string;

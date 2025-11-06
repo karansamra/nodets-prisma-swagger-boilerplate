@@ -1,6 +1,6 @@
-import { IReturnType } from 'v1/types/common';
-import * as userModel from '../repository/usersRepository';
-import { IUser } from 'v1/types/users';
+import { IReturnType } from '@src/v1/types/common';
+import * as userModel from '@src/v1/repository/usersRepository';
+import { IUser } from '@src/v1/types/users';
 
 export const enum RegisterUserReturnValues {
   SomethingWrong = 1,

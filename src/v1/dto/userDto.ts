@@ -1,5 +1,5 @@
 import { Exclude, Expose } from 'class-transformer';
-import { CommonDTO } from './commonDto';
+import { CommonDTO } from '@src/v1/dto/commonDto';
 
 export class UserDTO extends CommonDTO {
   @Expose()
