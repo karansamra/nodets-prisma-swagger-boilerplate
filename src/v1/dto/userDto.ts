@@ -9,7 +9,7 @@ export class UserDTO extends CommonDTO {
   lastName!: string;
 
   @Expose()
-  userName!: string;
+  username!: string;
 
   @Expose()
   email!: string;
