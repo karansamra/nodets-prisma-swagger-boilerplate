@@ -1,5 +1,5 @@
 import { Prisma, PrismaClient } from '@prisma/client';
-import { IReturnType } from 'v1/types/common';
+import { IReturnType } from '@src/v1/types/common';
 const prisma = new PrismaClient();
 
 export const createUser = async (

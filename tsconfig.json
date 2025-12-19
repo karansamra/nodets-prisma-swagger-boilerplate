@@ -8,16 +8,17 @@
     "sourceMap": true,
     "outDir": "dist",
     "strict": true,
-    "baseUrl": "./src",
+    "baseUrl": ".",
     "resolveJsonModule": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "paths": {
-      "/*": ["."]
+      "@src/*": ["src/*"],
+      "@swagger/*": ["swagger/*"]
     },
     "rootDirs": ["."],
     "lib": ["ESNext"]
   },
-  "include": ["src/**/*.ts"],
+  "include": ["src/**/*.ts", "prisma/**/*.ts"],
   "exclude": ["node_modules"]
 }

@@ -1,6 +1,7 @@
-import { IReturnType } from 'v1/types/common';
-import * as userRepository from '../repository/usersRepository';
-import { IUser } from 'v1/types/users';
+import { IReturnType } from '@src/v1/types/common';
+import * as userRepository from '@src/v1/repository/usersRepository';
+import { IUser } from '@src/v1/types/users';
+import logger from '@src/v1/utils/logging';
 
 export const enum RegisterUserReturnValues {
   SomethingWrong = 1,
@@ -33,6 +34,7 @@ export const createUser = async (
       data: { resData: {}, resType: RegisterUserReturnValues.UserNotCreated },
     };
   } catch (error) {
+    logger.error('Unhandled error in usersService.createUser', error as Error);
     return {
       success: false,
       data: { resData: {}, resType: RegisterUserReturnValues.SomethingWrong },
@@ -60,6 +62,7 @@ export const getUserById = async (userId: string): Promise<IReturnType> => {
       },
     };
   } catch (error: any) {
+    logger.error('Unhandled error in usersService.getUserById', error as Error);
     return {
       success: false,
       data: { resData: {}, resType: GetUserReturnValues.SomethingWrong },
@@ -91,6 +94,11 @@ export const getUsers = async (
       },
     };
   } catch (error: any) {
+    logger.error('Unhandled error in usersService.getUsers', error as Error, {
+      page,
+      limit,
+      hasSearch: Boolean(search),
+    });
     return {
       success: false,
       data: { resData: {}, resType: GetUserReturnValues.SomethingWrong },

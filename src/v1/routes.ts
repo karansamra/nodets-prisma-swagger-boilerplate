@@ -1,14 +1,13 @@
 import { Router } from 'express';
 import moment from 'moment';
-import UsersController from './controllers/usersController';
-import validateResource from './middlewares/validators/validator';
+import validateResource from '@src/v1/middlewares/validators/validator';
 import {
   listUsersSchema,
   signupSchema,
   uuidSchema,
-} from './middlewares/validators/schema/authValidation';
-
+} from '@src/v1/middlewares/validators/schema/authValidation';
 const routes = Router();
+import UsersController from '@src/v1/controllers/usersController';
 
 /*---------------------------------------------------------------------------------
  Define All the Routes Below. The routes will follow REST API standards strictly.

@@ -6,9 +6,9 @@ import * as path from 'path';
 import 'reflect-metadata';
 import swaggerJsDoc from 'swagger-jsdoc';
 import swaggerUi from 'swagger-ui-express';
-import swaggerDefinition from '../swagger/swaggerDefinition';
-import { default as routesV1 } from './v1/routes';
-import logger from './v1/utils/logging';
+import swaggerDefinition from '@swagger/swaggerDefinition';
+import { default as routesV1 } from '@src/v1/routes';
+import logger from '@src/v1/utils/logging';
 
 dotenv.config();
 const app = express();
