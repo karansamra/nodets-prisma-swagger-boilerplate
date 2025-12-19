@@ -1,5 +1,5 @@
 import { Exclude, Expose } from 'class-transformer';
-import { CommonDTO } from '@src/v1/dto/commonDto';
+import { CommonDTO } from './commonDto';
 
 export class UserDTO extends CommonDTO {
   @Expose()
@@ -9,7 +9,7 @@ export class UserDTO extends CommonDTO {
   lastName!: string;
 
   @Expose()
-  username!: string;
+  userName!: string;
 
   @Expose()
   email!: string;
@@ -20,6 +20,9 @@ export class UserDTO extends CommonDTO {
   @Expose()
   verified!: boolean;
 
-  @Exclude()
+  @Expose()
   password!: string;
+
+  @Exclude()
+  confirmPassword!: string;
 }

@@ -1,5 +1,11 @@
 import { Router } from 'express';
 import moment from 'moment';
+import validateResource from '@src/v1/middlewares/validators/validator';
+import {
+  listUsersSchema,
+  signupSchema,
+  uuidSchema,
+} from '@src/v1/middlewares/validators/schema/authValidation';
 const routes = Router();
 import UsersController from '@src/v1/controllers/usersController';
 
@@ -14,7 +20,23 @@ routes.get('/', (req, res) => {
     )} <br><br> Swagger is running on <a href="http://localhost:${port}/api-docs">http://localhost:${port}/api-docs</a>`
   );
 });
-// Authentication
-routes.get('/v1/users', UsersController.get);
+
+routes.post(
+  '/v1/signup',
+  validateResource(signupSchema),
+  UsersController.registerUser
+);
+
+routes.get(
+  '/v1/user/:userId',
+  validateResource(uuidSchema),
+  UsersController.getUser
+);
+
+routes.get(
+  '/v1/users',
+  validateResource(listUsersSchema),
+  UsersController.getUsers
+);
 
 export default routes;

@@ -2,6 +2,7 @@
   "recommendations": [
     "streetsidesoftware.code-spell-checker",
     "irongeek.vscode-env",
+    "usernamehw.errorlens",
     "dbaeumer.vscode-eslint",
     "eamodio.gitlens",
     "oderwat.indent-rainbow",
